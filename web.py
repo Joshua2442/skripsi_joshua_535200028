@@ -309,6 +309,8 @@ elif selected == "Prediksi Sentimen":
     if submit_button:
         if review_text.strip() == '':
             st.warning("Silakan masukkan ulasan!")
+        elif not any(char.isalnum() for char in review_text):
+            st.warning("Ulasan tidak terdeteksi. Silakan masukkan ulasan yang valid.")
         else:
             try:
                 # Load the TfidfVectorizer and SVM model for Sentiment
