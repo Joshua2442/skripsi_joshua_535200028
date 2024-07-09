@@ -313,7 +313,7 @@ elif selected == "Prediksi Sentimen":
             # Preprocess the input text
             cleaned_review = cleansing(review_text)
 
-            # Check if the input text contains only emoticons
+            # Check if the input text is empty after cleaning
             if len(cleaned_review) == 0:
                 st.warning("Ulasan tidak terdeteksi. Silakan masukkan ulasan lain.")
             else:
@@ -327,8 +327,7 @@ elif selected == "Prediksi Sentimen":
                     vectorizer2 = joblib.load(vectorizer_path2)
                     svm_model2 = joblib.load(svm_model_path2)
 
-                    # Transform the input text directly (without using cleansing function)
-                    # Note: Ensure the input text is preprocessed as required by your model
+                    # Transform the preprocessed text using the loaded vectorizer
                     transformed_review = vectorizer2.transform([cleaned_review])
 
                     # Use the loaded SVM model to make predictions on the transformed text
@@ -340,4 +339,4 @@ elif selected == "Prediksi Sentimen":
                     else:
                         st.error("Sentimen ulasan adalah negatif.")
                 except Exception as e:
-                    st.error(f"Error saat melakukan prediksi: {str(e)}")
+                    st.error(f"Terjadi kesalahan saat melakukan prediksi: {str(e)}")
