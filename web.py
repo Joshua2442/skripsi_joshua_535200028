@@ -327,10 +327,10 @@ elif selected == "Prediksi Sentimen":
                 svm_model2 = joblib.load(svm_model_path2)
 
                 # Transform the preprocessed text using the loaded vectorizer
-                transformed_review = vectorizer_path2([cleaned_review])
+                transformed_review = vectorizer2.transform([cleaned_review])
 
                 # Use the loaded SVM model to make predictions on the transformed text
-                prediction = svm_model2(transformed_review)
+                prediction = svm_model2.predict(transformed_review)
 
                 # Display prediction result
                 if prediction == 1:
