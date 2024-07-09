@@ -85,13 +85,13 @@ def resize_image(image, width):
     return resized_image
 
 # Load and resize images
-image_analisis1 = resize_image(Image.open("/content/pilihan analisis.png"), 600)
-image_analisis2 = resize_image(Image.open("/content/search analisis.png"), 600)
-image_analisis3 = resize_image(Image.open("/content/tampilan df .png"), 600)
-image_analisis4 = resize_image(Image.open("/content/tampilan df clean.png"), 600)
-image_analisis5 = resize_image(Image.open("/content/tampilan grafik .png"), 600)
-image_analisis6 = resize_image(Image.open("/content/grafik per bulan.png"), 600)
-image_prediksi1 = resize_image(Image.open("/content/prediksi.png"), 600)
+image_analisis1 = resize_image(Image.open("pilihan analisis.png"), 600)
+image_analisis2 = resize_image(Image.open("search analisis.png"), 600)
+image_analisis3 = resize_image(Image.open("tampilan df .png"), 600)
+image_analisis4 = resize_image(Image.open("tampilan df clean.png"), 600)
+image_analisis5 = resize_image(Image.open("tampilan grafik .png"), 600)
+image_analisis6 = resize_image(Image.open("grafik per bulan.png"), 600)
+image_prediksi1 = resize_image(Image.open("prediksi.png"), 600)
 
 # Streamlit app starts here
 st.title("Analisis Sentimen untuk Ulasan E-commerce")
