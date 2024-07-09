@@ -310,8 +310,8 @@ elif selected == "Prediksi Sentimen":
         if review_text.strip() == '':
             st.warning("Silakan masukkan ulasan!")
         else:
-            # Preprocess the input text
-            cleaned_review = cleansing(review_text)
+            # Proses prediksi menggunakan model SVM
+            prediction = svm_model2.predict(transformed_review)
 
             # Check if the input text contains only emoticons
             if len(cleaned_review) == 0:
