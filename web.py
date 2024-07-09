@@ -72,7 +72,7 @@ def train_svm_model_from_csv(csv_file_path):
     return svm_model, vectorizer
 
 # Path to the CSV file
-csv_file_path = '/content/data_latih.csv'
+csv_file_path = '"C:\Users\Grace Amelia\OneDrive\Pictures\Screenshots\JOSHUA\Skripsi\program skripsi joshua 535200028\data_latih.csv"'
 
 # Train the model
 svm_model, vectorizer = train_svm_model_from_csv(csv_file_path)
