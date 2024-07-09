@@ -318,7 +318,7 @@ elif selected == "Prediksi Sentimen":
                 st.warning("Ulasan tidak terdeteksi. Silakan masukkan ulasan lain.")
             else:
                 # Load the TfidfVectorizer and SVM model for Sentiment
-                model_folder2 = '/content/Trained_Model_Sentiment'
+                model_folder2 = 'Trained_Model_Sentiment'
                 vectorizer_path2 = model_folder2 + '/vectorizer2.pkl'
                 svm_model_path2 = model_folder2 + '/svm_model2.pkl'
 
