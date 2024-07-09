@@ -310,30 +310,34 @@ elif selected == "Prediksi Sentimen":
         if review_text.strip() == '':
             st.warning("Silakan masukkan ulasan!")
         else:
-            # Proses prediksi menggunakan model SVM
-            prediction = svm_model2.predict(transformed_review)
+            # Preprocess the input text
+            cleaned_review = cleansing(review_text)
 
             # Check if the input text contains only emoticons
             if len(cleaned_review) == 0:
                 st.warning("Ulasan tidak terdeteksi. Silakan masukkan ulasan lain.")
             else:
-                # Load the TfidfVectorizer and SVM model for Sentiment
-                model_folder2 = 'Trained_Model_Sentiment'
-                vectorizer_path2 = model_folder2 + '/vectorizer2.pkl'
-                svm_model_path2 = model_folder2 + '/svm_model2.pkl'
+                try:
+                    # Load the TfidfVectorizer and SVM model for Sentiment
+                    model_folder2 = 'Trained_Model_Sentiment'
+                    vectorizer_path2 = model_folder2 + '/vectorizer2.pkl'
+                    svm_model_path2 = model_folder2 + '/svm_model2.pkl'
 
-                # Load the TfidfVectorizer and SVM model
-                vectorizer2 = joblib.load(vectorizer_path2)
-                svm_model2 = joblib.load(svm_model_path2)
+                    # Load the TfidfVectorizer and SVM model
+                    vectorizer2 = joblib.load(vectorizer_path2)
+                    svm_model2 = joblib.load(svm_model_path2)
 
-                # Transform the preprocessed text using the loaded vectorizer
-                transformed_review = vectorizer2.transform([cleaned_review])
+                    # Transform the input text directly (without using cleansing function)
+                    # Note: Ensure the input text is preprocessed as required by your model
+                    transformed_review = vectorizer2.transform([cleaned_review])
 
-                # Use the loaded SVM model to make predictions on the transformed text
-                prediction = svm_model2.predict(transformed_review)
+                    # Use the loaded SVM model to make predictions on the transformed text
+                    prediction = svm_model2.predict(transformed_review)
 
-                # Display prediction result
-                if prediction == 1:
-                    st.success("Sentimen ulasan adalah positif!")
-                else:
-                    st.error("Sentimen ulasan adalah negatif.")
+                    # Display prediction result
+                    if prediction == 1:
+                        st.success("Sentimen ulasan adalah positif!")
+                    else:
+                        st.error("Sentimen ulasan adalah negatif.")
+                except Exception as e:
+                    st.error(f"Error saat melakukan prediksi: {str(e)}")
