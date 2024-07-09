@@ -94,7 +94,7 @@ image_analisis6 = resize_image(Image.open("grafik per bulan.png"), 600)
 image_prediksi1 = resize_image(Image.open("prediksi.png"), 600)
 
 # Streamlit app starts here
-st.title("Analisis Sentimen untuk Ulasan E-commerce")
+st.title("Ul-ecom")
 
 # Streamlit options menu for navigation
 selected = st.sidebar.radio("Pilih Fitur", ["Beranda", "Analisis", "Prediksi Sentimen"])
